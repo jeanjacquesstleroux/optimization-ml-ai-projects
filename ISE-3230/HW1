@@ -18,8 +18,8 @@ x = cp.Variable(3, nonneg  = True)
 constraints = []
 constraints.append((18*x[0]+29*x[1]+38*x[2]) >= 30*(x[0]+x[1]+x[2]))
 constraints.append(x[0]<=600000) #demand constraint x1
-constraints.append(x[1]<=800000)
-constraints.append(x[2]<=700000) 
+constraints.append(x[1]<=800000) #demand constraint x2
+constraints.append(x[2]<=700000) #demand constraint x3
 
 obj_func= 600*x[0]+460*x[1]+320*x[2]
 
