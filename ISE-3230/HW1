@@ -27,6 +27,10 @@ problem = cp.Problem(cp.Maximize(obj_func), constraints)
 problem.solve(solver=cp.GUROBI,verbose = False)
 # "verbose parameter determines showing/not showing the output"
 
-print(f"objective function: {obj_func}")
-print(x.value)
-#print("optimal solutions: " + x)
+print(f"Objective function (P1): {obj_func}")
+print(f"Optimal solutions (P1): {x.value}")
+
+"""
+Problem 2: Investment Problem (redo)
+"""
+
