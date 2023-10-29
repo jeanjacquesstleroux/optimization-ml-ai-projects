@@ -14,8 +14,9 @@ from sklearn.metrics import (
     accuracy_score, confusion_matrix, classification_report,
     roc_curve, roc_auc_score, auc
 )
+from sklearn.metrics import precision_recall_curve
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import recall_score, precision_score  # Import the necessary functions
+from sklearn.metrics import recall_score, precision_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 from imblearn.over_sampling import SMOTE
@@ -112,9 +113,10 @@ def evaluate_knn_classifier(X_test, y_test, knn_classifier):
     # Predict on the test set
     y_pred = knn_classifier.predict(X_test)
 
-    # Calculate the area under the precision-recall curve
-    recall = recall_score(y_test, y_pred)
-    precision = precision_score(y_test, y_pred)
+    # Calculate the precision-recall curve
+    precision, recall, _ = precision_recall_curve(y_test, y_pred)
+
+    # Calculate the AUC (Area Under the Curve)
     pr_auc = auc(recall, precision)
     
     plt.figure()
