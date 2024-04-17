@@ -9,7 +9,7 @@ Created on Tue Apr 16 23:27:55 2024
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
-sys.setrecursionlimit(1500)  # need to use so my code can do the recursive calls
+sys.setrecursionlimit(1500)  # need to use so code can do the recursive calls
 
 def initialize_problem(m, n):
     """initialize random problem dimensions and matrix a"""
@@ -75,12 +75,14 @@ def main():
 
 def plot_results(vals, steps):
     """plot the results"""
+    # obj function value over iterations plot
     plt.figure(1)
-    plt.semilogy(range(len(vals) - 1), np.array(vals[:-1]) - vals[-1], '-')
-    plt.title('Objective Function Value Over Iterations')
+    plt.semilogy(range(len(vals) - 1), np.array(vals[:-1]) - vals[-1], '-') # log scale axis
+    plt.title('Objective Function Value Over Iterations') 
     plt.xlabel('Iteration (k)')
     plt.ylabel('Function Values (' + r'$f(\mathbf{x}^{(k)}) - p^*$' + ')')
-    
+
+    # step sizes over iterations plot
     plt.figure(2)
     plt.plot(range(len(steps)), steps, 'o:', label='Step Size')
     plt.title('Step Sizes Over Iterations')
